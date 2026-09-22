@@ -1,5 +1,5 @@
 import sqlite3
-from ast import List
+from typing import List  # 👈 Обов'язково з typing!
 
 from app.models import Actor
 
