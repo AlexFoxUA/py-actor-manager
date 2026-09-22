@@ -24,7 +24,7 @@ class ActorManager:
 
         return [Actor(*data_actors) for data_actors in data_actor]
 
-    def update(self, pk: str, new_first_name: str, new_last_name: str) -> None:
+    def update(self, pk: int, new_first_name: str, new_last_name: str) -> None:
         self._connection.execute(
             f"UPDATE {self._table_name} "
             "SET first_name=?, last_name=? "
@@ -33,7 +33,7 @@ class ActorManager:
         )
         self._connection.commit()
 
-    def delete(self, pk: str) -> None:
+    def delete(self, pk: int) -> None:
         self._connection.execute(
             f"DELETE FROM {self._table_name} WHERE id=?",
             (pk,)
